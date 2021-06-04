@@ -29,18 +29,48 @@
     <script>
         // Initialize and add the map
         function initMap() {
-          // The location of Uluru
-          const uluru = { lat: -22.8413569, lng: -47.053622 };
-          // The map, centered at Uluru
-          const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 11,
-            center: uluru,
-          });
-          // The marker, positioned at Uluru
-          const marker = new google.maps.Marker({
-            position: uluru,
-            map: map,
-          });
+            // The location of Uluru
+            // const uluru = { lat: -22.8413569, lng: -47.053000 };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+            center: new google.maps.LatLng(-22.8413569,-47.053000),
+            zoom: 16,
+            });
+
+            const iconBase="https://developers.google.com/maps/documentation/javascript/examples/full/images/";
+            const icons = {
+                police: {
+                icon: iconBase + "/images/police-car.png",
+                },
+            };
+
+            const features = [
+                {
+                position: new google.maps.LatLng(-22.8413569,-47.053000),
+                type: "police",
+                },
+                {
+                position: new google.maps.LatLng(-22.8413569,-47.052500),
+                type: "police",
+                },
+                {
+                position: new google.maps.LatLng(-33.91747, 151.22912),
+                type: "police",
+                },
+                {
+                position: new google.maps.LatLng(-33.9191, 151.22907),
+                type: "police",
+                },
+            ];
+
+        // Create markers.
+            for (let i = 0; i < features.length; i++) {
+                const marker = new google.maps.Marker({
+                position: features[i].position,
+                icon: icons[features[i].type].icon,
+                map: map,
+                });
+            }
         }
       </script>
 
@@ -57,7 +87,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <!-- <a class="navbar-brand" href="./">MS Segur</a> -->
-                <a class="navbar-brand" href="./"><img src="../images/logo-ms.png" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img width="45px" class="user-avatar rounded-circle" src="../images/admin.jpg" alt="User Avatar"></a>
                 <a class="navbar-brand hidden pr-2" href="./">MS</a>
             </div>
       
@@ -68,7 +98,7 @@
                     </li>
                     <h3 class="menu-title">Segurança</h3><!-- /.menu-title -->
                     <li>
-                        <a href="../MapaCriminalidade/index.html"> <i class="menu-icon fa fa-globe"></i>Mapa informativo</a>
+                        <a href="../MapaCriminalidade/index.html"> <i class="menu-icon fa fa-globe"></i>Mapa de criminalidade</a>
                     </li>
                     <h3 class="menu-title">Acontecendo</h3><!-- /.menu-title -->
                     <li class="active">
