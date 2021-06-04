@@ -46,49 +46,19 @@ const blueCircles = {
   },
 };
 
-function reportarControl(controlDiv, map) {
-  const controlUI = document.createElement("div");
-  controlUI.style.backgroundColor = "#FF0000";
-  controlUI.style.border = "2px solid #000000";
-  controlUI.style.borderRadius = "3px";
-  controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
-  controlUI.style.cursor = "pointer";
-  controlUI.style.marginTop = "8px";
-  controlUI.style.marginBottom = "22px";
-  controlUI.style.textAlign = "center";
-  controlUI.title = "Clique para reportar um incidente";
-  controlDiv.appendChild(controlUI);
-  // Set CSS for the control interior.
-  const controlText = document.createElement("div");
-  controlText.style.color = "rgb(255,255,255)";
-  controlText.style.fontWeight = "bold";
-  controlText.style.fontFamily = "Roboto,Arial,sans-serif";
-  controlText.style.fontSize = "32px";
-  controlText.style.lineHeight = "38px";
-  controlText.style.paddingLeft = "5px";
-  controlText.style.paddingRight = "5px";
-  controlText.innerHTML = "Reportar incidente";
-  controlUI.appendChild(controlText);
-
-  // Setup the click event listeners: simply set the map to Chicago.
-  controlUI.addEventListener("click", () => {
-    document.getElementById("modalReportarButton").click();
-  });
-}
-
 function initMap() {
   const icons = {
     car: {
       name: "Assalto de carro",
-      icon: "./assets/car_1x.png",
+      icon: "./assets/car_2x.png",
     },
     gun: {
       name: "Assalto armado",
-      icon: "./assets/gun_1x.png",
+      icon: "./assets/gun_2x.png",
     },
     exclamation: {
       name: "Assedio",
-      icon: "./assets/exclamation_1x.png",
+      icon: "./assets/exclamation_2x.png",
     },
   };
 
@@ -229,6 +199,9 @@ function initMap() {
     });
 
     marker.addListener("click", () => {
+      infoWindowOrange.close();
+      infoWindowBlue.close();
+
       infoWindowRed.setPosition(redCircles[redCircle]);
       infoWindowRed.open(map);
     });
@@ -242,6 +215,9 @@ function initMap() {
     });
 
     marker.addListener("click", () => {
+      infoWindowRed.close();
+      infoWindowBlue.close();
+
       infoWindowOrange.setPosition(orangeCircles[orangeCircle]);
       infoWindowOrange.open(map);
     });
@@ -255,6 +231,9 @@ function initMap() {
     });
 
     marker.addListener("click", () => {
+      infoWindowRed.close();
+      infoWindowBlue.close();
+
       infoWindowBlue.setPosition(blueCircles[blueCircle]);
       infoWindowBlue.open(map);
     });
@@ -291,9 +270,4 @@ function initMap() {
     div.innerHTML = '<img src="' + icon + '"> ' + name;
     legendColors.appendChild(div);
   }
-
-  // botões customizados
-  const reportarDiv = document.createElement("div");
-  reportarControl(reportarDiv, map);
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(reportarDiv);
 }

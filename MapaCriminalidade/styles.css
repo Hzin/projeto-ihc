@@ -38,3 +38,7 @@ body {
   padding: 0;
   overflow: hidden; /* Hide scrollbars */
 }
+
+.navbar{
+  margin: 0 0 0 0 !important;
+}
