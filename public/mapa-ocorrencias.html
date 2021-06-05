@@ -26,54 +26,6 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <script>
-        // Initialize and add the map
-        function initMap() {
-            // The location of Uluru
-            // const uluru = { lat: -22.8413569, lng: -47.053000 };
-            // The map, centered at Uluru
-            const map = new google.maps.Map(document.getElementById("map"), {
-            center: new google.maps.LatLng(-22.8413569,-47.053000),
-            zoom: 16,
-            });
-
-            const iconBase="https://developers.google.com/maps/documentation/javascript/examples/full/images/";
-            const icons = {
-                police: {
-                icon: iconBase + "/images/police-car.png",
-                },
-            };
-
-            const features = [
-                {
-                position: new google.maps.LatLng(-22.8413569,-47.053000),
-                type: "police",
-                },
-                {
-                position: new google.maps.LatLng(-22.8413569,-47.052500),
-                type: "police",
-                },
-                {
-                position: new google.maps.LatLng(-33.91747, 151.22912),
-                type: "police",
-                },
-                {
-                position: new google.maps.LatLng(-33.9191, 151.22907),
-                type: "police",
-                },
-            ];
-
-        // Create markers.
-            for (let i = 0; i < features.length; i++) {
-                const marker = new google.maps.Marker({
-                position: features[i].position,
-                icon: icons[features[i].type].icon,
-                map: map,
-                });
-            }
-        }
-      </script>
-
 </head>
 
 <body>
@@ -277,13 +229,13 @@
         <script src="../vendors/jquery/dist/jquery.min.js"></script>
         <script src="../vendors/popper.js/dist/umd/popper.min.js"></script>
         <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="../assets/js/main.js"></script>
+        <script src="../assets/js/mapa_ocorrencias.js"></script>
 
         <!-- <script async
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe3a_sYo7MQ6qVNxvz3yfzv35ursm00lo&callback=initMap">
         </script> -->
 
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe3a_sYo7MQ6qVNxvz3yfzv35ursm00lo&callback=initMap"
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAe3a_sYo7MQ6qVNxvz3yfzv35ursm00lo&callback=initMapOcorrencias"
         type="text/javascript"></script>
 </body>
 
