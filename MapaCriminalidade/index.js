@@ -62,6 +62,8 @@ function initMap() {
     },
   };
 
+  clickIcon = "./assets/iconClick.png";
+
   const colors = {
     red: {
       name: "Risco: alto",
@@ -129,6 +131,7 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -22.84656676534597, lng: -47.051059616883165 },
     zoom: 18,
+    disableDefaultUI: true,
   });
 
   const rectangleRed = new google.maps.Rectangle({
@@ -271,6 +274,20 @@ function initMap() {
     legendColors.appendChild(div);
   }
 
+  // legenda de reporte
+  var legendReporte = document.getElementById("legendReporte");
+  const divReporte = document.createElement("div");
+  divReporte.innerHTML =
+    '<img src="' +
+    clickIcon +
+    '"> Clique no mapa para reportar um incidente.';
+  // divReporte.innerHTML = "Clique no mapa para reportar um incidente.";
+  legendReporte.appendChild(divReporte);
+
+  map.controls[google.maps.ControlPosition.LEFT_TOP].push(
+    document.getElementById("legendReporte")
+  );
+
   // converte coordenadas para endereço
   const geocoder = new google.maps.Geocoder();
 
@@ -297,8 +314,7 @@ function initMap() {
         console.log("Geocoder failed due to: " + status);
       }
 
-      document
-        .getElementById("localizacao").innerHTML = resultadoGeocoder;
+      document.getElementById("localizacao").innerHTML = resultadoGeocoder;
 
       document.getElementById("modalReportarButton").click();
     });
