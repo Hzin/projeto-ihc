@@ -10,7 +10,7 @@ li {
 }
 
 /* divs de Legenda */
-#legendIcons, #legendColors {
+#legendIcons, #legendColors, #legendReporte {
   font-family: Arial, sans-serif;
   font-size: 14px;
   background: #fff;
@@ -19,14 +19,14 @@ li {
   border: 3px solid #000;
 }
 
-#legendIcons h3, #legendColors h3 {
+#legendIcons h3, #legendColors h3, #legendReporte h3 {
   margin-top: 0;
   font-size: 18px;
   font-weight: bold;
   text-align: center;
 }
 
-#legendIcons img, #legendColors img {
+#legendIcons img, #legendColors img, #legendReporte img {
   vertical-align: middle;
 }
 

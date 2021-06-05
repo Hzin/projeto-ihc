@@ -46,51 +46,23 @@ const blueCircles = {
   },
 };
 
-function reportarControl(controlDiv, map) {
-  const controlUI = document.createElement("div");
-  controlUI.style.backgroundColor = "#FF0000";
-  controlUI.style.border = "2px solid #000000";
-  controlUI.style.borderRadius = "3px";
-  controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
-  controlUI.style.cursor = "pointer";
-  controlUI.style.marginTop = "8px";
-  controlUI.style.marginBottom = "22px";
-  controlUI.style.textAlign = "center";
-  controlUI.title = "Clique para reportar um incidente";
-  controlDiv.appendChild(controlUI);
-  // Set CSS for the control interior.
-  const controlText = document.createElement("div");
-  controlText.style.color = "rgb(255,255,255)";
-  controlText.style.fontWeight = "bold";
-  controlText.style.fontFamily = "Roboto,Arial,sans-serif";
-  controlText.style.fontSize = "32px";
-  controlText.style.lineHeight = "38px";
-  controlText.style.paddingLeft = "5px";
-  controlText.style.paddingRight = "5px";
-  controlText.innerHTML = "Reportar incidente";
-  controlUI.appendChild(controlText);
-
-  // Setup the click event listeners: simply set the map to Chicago.
-  controlUI.addEventListener("click", () => {
-    document.getElementById("modalReportarButton").click();
-  });
-}
-
 function initMap() {
   const icons = {
     car: {
       name: "Assalto de carro",
-      icon: "./assets/car_1x.png",
+      icon: "./assets/car_2x.png",
     },
     gun: {
       name: "Assalto armado",
-      icon: "./assets/gun_1x.png",
+      icon: "./assets/gun_2x.png",
     },
     exclamation: {
       name: "Assedio",
-      icon: "./assets/exclamation_1x.png",
+      icon: "./assets/exclamation_2x.png",
     },
   };
+
+  clickIcon = "./assets/iconClick.png";
 
   const colors = {
     red: {
@@ -159,6 +131,7 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -22.84656676534597, lng: -47.051059616883165 },
     zoom: 18,
+    disableDefaultUI: true,
   });
 
   const rectangleRed = new google.maps.Rectangle({
@@ -229,6 +202,9 @@ function initMap() {
     });
 
     marker.addListener("click", () => {
+      infoWindowOrange.close();
+      infoWindowBlue.close();
+
       infoWindowRed.setPosition(redCircles[redCircle]);
       infoWindowRed.open(map);
     });
@@ -242,6 +218,9 @@ function initMap() {
     });
 
     marker.addListener("click", () => {
+      infoWindowRed.close();
+      infoWindowBlue.close();
+
       infoWindowOrange.setPosition(orangeCircles[orangeCircle]);
       infoWindowOrange.open(map);
     });
@@ -255,6 +234,9 @@ function initMap() {
     });
 
     marker.addListener("click", () => {
+      infoWindowRed.close();
+      infoWindowBlue.close();
+
       infoWindowBlue.setPosition(blueCircles[blueCircle]);
       infoWindowBlue.open(map);
     });
@@ -292,8 +274,49 @@ function initMap() {
     legendColors.appendChild(div);
   }
 
-  // botões customizados
-  const reportarDiv = document.createElement("div");
-  reportarControl(reportarDiv, map);
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(reportarDiv);
+  // legenda de reporte
+  var legendReporte = document.getElementById("legendReporte");
+  const divReporte = document.createElement("div");
+  divReporte.innerHTML =
+    '<img src="' +
+    clickIcon +
+    '"> Clique no mapa para reportar um incidente.';
+  // divReporte.innerHTML = "Clique no mapa para reportar um incidente.";
+  legendReporte.appendChild(divReporte);
+
+  map.controls[google.maps.ControlPosition.LEFT_TOP].push(
+    document.getElementById("legendReporte")
+  );
+
+  // converte coordenadas para endereço
+  const geocoder = new google.maps.Geocoder();
+
+  // adicionando listener que vai abrir um modal de reporte
+  map.addListener("click", (mapsMouseEvent) => {
+    infoWindowRed.close();
+    infoWindowOrange.close();
+    infoWindowBlue.close();
+
+    const latLng = JSON.parse(
+      JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+    );
+
+    let resultadoGeocoder = latLng.lat + ", " + latLng.lng;
+
+    geocoder.geocode({ location: latLng }, (results, status) => {
+      if (status === "OK") {
+        if (results[0]) {
+          resultadoGeocoder = results[0].formatted_address;
+        } else {
+          console.log("Não foi possível obter o endereço");
+        }
+      } else {
+        console.log("Geocoder failed due to: " + status);
+      }
+
+      document.getElementById("localizacao").innerHTML = resultadoGeocoder;
+
+      document.getElementById("modalReportarButton").click();
+    });
+  });
 }
