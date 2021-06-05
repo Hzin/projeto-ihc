@@ -270,4 +270,37 @@ function initMap() {
     div.innerHTML = '<img src="' + icon + '"> ' + name;
     legendColors.appendChild(div);
   }
+
+  // converte coordenadas para endereço
+  const geocoder = new google.maps.Geocoder();
+
+  // adicionando listener que vai abrir um modal de reporte
+  map.addListener("click", (mapsMouseEvent) => {
+    infoWindowRed.close();
+    infoWindowOrange.close();
+    infoWindowBlue.close();
+
+    const latLng = JSON.parse(
+      JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+    );
+
+    let resultadoGeocoder = latLng.lat + ", " + latLng.lng;
+
+    geocoder.geocode({ location: latLng }, (results, status) => {
+      if (status === "OK") {
+        if (results[0]) {
+          resultadoGeocoder = results[0].formatted_address;
+        } else {
+          console.log("Não foi possível obter o endereço");
+        }
+      } else {
+        console.log("Geocoder failed due to: " + status);
+      }
+
+      document
+        .getElementById("localizacao").innerHTML = resultadoGeocoder;
+
+      document.getElementById("modalReportarButton").click();
+    });
+  });
 }
