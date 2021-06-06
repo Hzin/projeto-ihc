@@ -128,7 +128,7 @@ function initMap() {
     content: messageBlue,
   });
 
-  map = new google.maps.Map(document.getElementById("map"), {
+  map = new google.maps.Map(document.getElementById("map2"), {
     center: { lat: -22.84656676534597, lng: -47.051059616883165 },
     zoom: 18,
     disableDefaultUI: true,
