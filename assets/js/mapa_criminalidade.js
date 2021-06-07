@@ -50,35 +50,35 @@ function initMap() {
   const icons = {
     car: {
       name: "Assalto de carro",
-      icon: "./assets/car_2x.png",
+      icon: "/images/car_2x.png",
     },
     gun: {
       name: "Assalto armado",
-      icon: "./assets/gun_2x.png",
+      icon: "/images/gun_2x.png",
     },
     exclamation: {
       name: "Assedio",
-      icon: "./assets/exclamation_2x.png",
+      icon: "/images/exclamation_2x.png",
     },
   };
 
-  clickIcon = "./assets/iconClick.png";
+  clickIcon = "/images/iconClick.png";
 
   const colors = {
     red: {
       name: "Risco: alto",
       code: "#FF0000",
-      icon: "./assets/rectangleRed.png",
+      icon: "/images/rectangleRed.png",
     },
     orange: {
       name: "Risco: medio",
       code: "#FFA500",
-      icon: "./assets/rectangleOrange.png",
+      icon: "/images/rectangleOrange.png",
     },
     blue: {
       name: "Risco: baixo",
       code: "#0000FF",
-      icon: "./assets/rectangleBlue.png",
+      icon: "/images/rectangleBlue.png",
     },
   };
 

@@ -18,10 +18,10 @@ function initMapOcorrencias() {
         icon: "/images/car-diagonal.png",
         },
         arma: {
-        icon: "../MapaCriminalidade/assets/gun_2x.png",
+        icon: "/images/gun_2x.png",
         },
         outros: {
-        icon: "../MapaCriminalidade/assets/exclamation_2x.png",
+        icon: "/images/exclamation_2x.png",
         },
     };
 
