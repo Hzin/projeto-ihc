@@ -42,3 +42,9 @@ body {
 .navbar{
   margin: 0 0 0 0 !important;
 }
+
+#alterarEndereco {
+  margin-top: 12px;
+  position: absolute;
+  left: 65%;
+}
