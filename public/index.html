@@ -24,19 +24,23 @@
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
     <!-- Styles do template -->
-    <link rel="stylesheet" href="../vendors/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../vendors/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../vendors/themify-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="../vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="../vendors/selectFX/css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="../vendors/bootstrap/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fcss%2Fbootstrap.min.css?alt=media&token=e6777d00-d8d2-4593-b539-721ff15581b0">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <!-- <link rel="stylesheet" href="../vendors/flag-icon-css/css/flag-icon.min.css"> -->
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fcss%2Fflag-icon.min.css?alt=media&token=8192a248-5534-417e-a78d-acb845ad4459">
+    <!-- <link rel="stylesheet" href="../vendors/selectFX/css/cs-skin-elastic.css"> -->
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fcss%2Fcs-skin-elastic.css?alt=media&token=4cb8ca2a-1248-471c-9113-601165d1209f">
 
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/css.css">
+    <!-- <link rel="stylesheet" href="../assets/css/style.css"> -->
+    <link rel="stylesheet" href="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fcss%2Fstyle.css?alt=media&token=72295055-bdfc-41d3-b2ee-ba1aa58ba7f6">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <!-- Fim styles do template -->
-
+    
   </head>
   <body>
     
@@ -51,7 +55,7 @@
               <i class="fa fa-bars"></i>
           </button>
           <!-- <a class="navbar-brand" href="./">MS Segur</a> -->
-          <a class="navbar-brand" href="./"><img width="45px" class="user-avatar rounded-circle" src="../images/admin.jpg" alt="User Avatar"></a>
+          <a class="navbar-brand" href="./"><img width="45px" class="user-avatar rounded-circle" src="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fimages%2Fadmin.jpg?alt=media&token=e4d40f57-80d6-4b83-ba14-c1918f1005bc" alt="User Avatar"></a>
                 <a class="navbar-brand hidden pr-2" href="./">MS</a>
       </div>
 
@@ -84,27 +88,27 @@
 <div id="right-panel" class="right-panel">
 
   <!-- Header-->
-  <header id="header" class="header">
+    <header id="header" class="header">
 
-      <div class="header-menu">
+        <div class="header-menu">
 
-          <div class="col-sm-7">
-              <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-              <div class="header-left">
-                  <button class="search-trigger"><i class="fa fa-search"></i></button>
-                  <div class="form-inline">
-                      <form class="search-form">
-                          <input class="form-control mr-sm-2" type="text" placeholder="Buscar ..." aria-label="Search">
-                          <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                      </form>
-                  </div>
+            <div class="col-sm-7">
+                <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                <div class="header-left">
+                    <button class="search-trigger"><i class="fa fa-search"></i></button>
+                    <div class="form-inline">
+                        <form class="search-form">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Buscar ..." aria-label="Search">
+                            <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                        </form>
+                    </div>
 
-                  <div class="dropdown for-notification">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fa fa-bell"></i>
-                          <span class="count bg-danger">2</span>
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="notification">
+                    <div class="dropdown for-notification">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bell"></i>
+                            <span class="count bg-danger">2</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="notification">
                         <a class="dropdown-item media bg-flat-color-1" href="#">
                             <i class="fa fa-check"></i>
                             <p><b>Seu alerta de roubo foi resolvido</b></p>
@@ -113,64 +117,42 @@
                             <i class="fa fa-warning"></i>
                             <p><b>Roubo acontecendo na sua região</b></p>
                         </a>
-                      </div>
-                  </div>
+                        </div>
+                    </div>
 
-                  <div class="dropdown for-message">
-                      <button class="btn btn-secondary dropdown-toggle" type="button"
-                          id="message"
-                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="ti-email"></i>
-                          <span class="count bg-primary">2</span>
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="message">
-                          <a class="dropdown-item media bg-flat-color-1" href="#">
-                          <span class="photo media-left"><img alt="avatar" src="../images/avatar/1.jpg"></span>
-                          <span class="message media-body">
-                              <span class="name float-left">Joana Silva</span>
-                              <span class="time float-right">Agora</span>
-                                  <p><b>Obrigado pela contribuição !</b></p>
-                          </span>
-                      </a>
-                          <a class="dropdown-item media bg-flat-color-4" href="#">
-                          <span class="photo media-left"><img alt="avatar" src="../images/avatar/2.jpg"></span>
-                          <span class="message media-body">
-                              <span class="name float-left">Jaqueline Soares</span>
-                              <span class="time float-right">5 minutos atrás</span>
-                                  <p><b>Continue ajudando a sua comunidade</b></p>
-                          </span>
-                      </a>
-                      </div>
-                  </div>
-              </div>
-          </div>
+                    <div class="dropdown for-message">
+                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                            id="message"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="ti-email"></i>
+                            <span class="count bg-primary">2</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="message">
+                            <a class="dropdown-item media bg-flat-color-1" href="#">
+                            <span class="photo media-left"><img alt="avatar" src="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fimages%2Favatar%2F1.jpg?alt=media&token=86a25561-c22f-4cb2-9e7d-3a8edf69e3da"></span>
+                            <span class="message media-body">
+                                <span class="name float-left">Joana Silva</span>
+                                <span class="time float-right">Agora</span>
+                                    <p><b>Obrigado pela contribuição !</b></p>
+                            </span>
+                        </a>
+                            <a class="dropdown-item media bg-flat-color-4" href="#">
+                            <span class="photo media-left"><img alt="avatar" src="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fimages%2Favatar%2F2.jpg?alt=media&token=bfb68b0b-18dd-448d-a78c-9b9b9e5a3a4f"></span>
+                            <span class="message media-body">
+                                <span class="name float-left">Jaqueline Soares</span>
+                                <span class="time float-right">5 minutos atrás</span>
+                                    <p><b>Continue ajudando a sua comunidade</b></p>
+                            </span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-          <div class="col-sm-5">
+            
+        </div>
 
-              <div class="language-select dropdown" id="language-select">
-                  <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                      <i class="flag-icon flag-icon-br"></i>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="language">
-                      <div class="dropdown-item">
-                          <span class="flag-icon flag-icon-fr"></span>
-                      </div>
-                      <div class="dropdown-item">
-                          <i class="flag-icon flag-icon-es"></i>
-                      </div>
-                      <div class="dropdown-item">
-                          <i class="flag-icon flag-icon-us"></i>
-                      </div>
-                      <div class="dropdown-item">
-                          <i class="flag-icon flag-icon-it"></i>
-                      </div>
-                  </div>
-              </div>
-
-          </div>
-      </div>
-
-  </header><!-- /header -->
+    </header><!-- /header -->
   <!-- Header-->
 
   <div class="breadcrumbs">
@@ -450,7 +432,7 @@
 <!-- Right Panel -->
 
 <!-- Scripts do template -->
-<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- <script src="../vendors/jquery/dist/jquery.min.js"></script>
 <script src="../vendors/popper.js/dist/umd/popper.min.js"></script>
 <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../assets/js/main.js"></script>
@@ -458,7 +440,16 @@
 
 <script src="../vendors/chart.js/dist/Chart.bundle.min.js"></script>
 <script src="../assets/js/dashboard.js"></script>
-<script src="../assets/js/widgets.js"></script>
+<script src="../assets/js/widgets.js"></script> -->
+<script src="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fjs%2Fjquery.min.js?alt=media&token=77cc2cac-900e-4d03-8650-a7cc9cb3af48"></script>
+<script src="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fjs%2Fpopper.min.js?alt=media&token=032114f2-11bb-495b-9f05-990703db08c8"></script>
+<script src="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fjs%2Fbootstrap.min.js?alt=media&token=7465e122-80bc-427a-8c85-0dfd02e1c53b"></script>
+<script src="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fjs%2Fmain.js?alt=media&token=f02896a6-bd4d-467d-b4fc-3424fdf6758f"></script>
+
+
+<script src="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fjs%2FChart.bundle.min.js?alt=media&token=f50b7e31-acf2-4e13-9bd6-f15b5e6bddc6"></script>
+<script src="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fjs%2Fdashboard.js?alt=media&token=b1bb3844-8c7c-45bb-bd6d-2ccbf40009c3"></script>
+<script src="https://firebasestorage.googleapis.com/v0/b/projeto-ihc-c6a5b.appspot.com/o/assets%2Fjs%2Fwidgets.js?alt=media&token=51c4206c-fe2c-42b3-8f29-df1d12c90b1a"></script>
 <!-- Fim scripts do template -->
 
     <script>
