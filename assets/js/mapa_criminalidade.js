@@ -50,35 +50,35 @@ function initMap() {
   const icons = {
     car: {
       name: "Assalto de carro",
-      icon: "/images/car_2x.png",
+      icon: "../images/car_2x.png",
     },
     gun: {
       name: "Assalto armado",
-      icon: "/images/gun_2x.png",
+      icon: "../images/gun_2x.png",
     },
     exclamation: {
       name: "Assedio",
-      icon: "/images/exclamation_2x.png",
+      icon: "../images/exclamation_2x.png",
     },
   };
 
-  clickIcon = "/images/iconClick.png";
+  clickIcon = "../images/iconClick_1x.png";
 
   const colors = {
     red: {
       name: "Risco: alto",
       code: "#FF0000",
-      icon: "/images/rectangleRed.png",
+      icon: "../images/rectangleRed.png",
     },
     orange: {
       name: "Risco: medio",
       code: "#FFA500",
-      icon: "/images/rectangleOrange.png",
+      icon: "../images/rectangleOrange.png",
     },
     blue: {
       name: "Risco: baixo",
       code: "#0000FF",
-      icon: "/images/rectangleBlue.png",
+      icon: "../images/rectangleBlue.png",
     },
   };
 
@@ -131,7 +131,6 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map2"), {
     center: { lat: -22.84656676534597, lng: -47.051059616883165 },
     zoom: 18,
-    disableDefaultUI: true,
   });
 
   const rectangleRed = new google.maps.Rectangle({
@@ -280,7 +279,7 @@ function initMap() {
   divReporte.innerHTML =
     '<img src="' +
     clickIcon +
-    '"> Clique no mapa para reportar um incidente.';
+    '"> Para informar um incidente, clique no mapa.';
   // divReporte.innerHTML = "Clique no mapa para reportar um incidente.";
   legendReporte.appendChild(divReporte);
 
@@ -319,4 +318,8 @@ function initMap() {
       document.getElementById("modalReportarButton").click();
     });
   });
+}
+
+function switchEnderecoInput() {
+  document.getElementById("localizacao").readOnly = false;
 }
